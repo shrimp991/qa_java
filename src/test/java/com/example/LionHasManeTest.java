@@ -33,6 +33,11 @@ public class LionHasManeTest {
 
     @Test (expected = Exception.class)
     public void testConstructorException() throws Exception {
-        Lion lion = new Lion("Оно");
+        try {
+            Lion lion = new Lion("Оно");
+        } catch (Exception e) {
+            assertEquals("Используйте допустимые значения пола животного - самец или самка", e.getMessage());
+            throw e;
+        }
     }
 }
