@@ -30,4 +30,9 @@ public class LionHasManeTest {
         boolean actualHasMane = lion.doesHaveMane();
         assertEquals("Value incorrect", expectedHasMane, actualHasMane);
     }
+
+    @Test (expected = Exception.class)
+    public void testConstructorException() throws Exception {
+        Lion lion = new Lion("Оно");
+    }
 }
