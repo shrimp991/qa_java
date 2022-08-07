@@ -14,8 +14,8 @@ public class LionTest {
     private Feline feline;
 
     @Test
-    public void getKittensCorrectValue() {
-        Lion lion = new Lion(feline);
+    public void getKittensCorrectValue() throws Exception {
+        Lion lion = new Lion("Самец", feline);
         int expectedValue = 1;
         Mockito.when(feline.getKittens()).thenReturn(1);
         int actualValue = lion.getKittens();
@@ -24,7 +24,7 @@ public class LionTest {
 
     @Test
     public void getFoodCheckList() throws Exception {
-        Lion lion = new Lion(feline);
+        Lion lion = new Lion("Самка", feline);
         List<String> expectedListOfFood = List.of("Животные", "Птицы", "Рыба");
         Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         List<String> actualListOdFood = lion.getFood();

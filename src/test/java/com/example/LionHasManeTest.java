@@ -16,7 +16,7 @@ public class LionHasManeTest {
         this.expectedHasMane = expectedHasMane;
     }
 
-    @Parameterized.Parameters
+    @Parameterized.Parameters (name = "Тестовые данные: {0} {1}")
     public static Object[][] checkHasMane(){
         return new Object[][] {
                 {"Самец", true},
@@ -26,7 +26,8 @@ public class LionHasManeTest {
 
     @Test
     public void checkHasManeCorrectValue() throws Exception {
-        Lion lion = new Lion(sex);
+        Feline feline = new Feline();
+        Lion lion = new Lion(sex, feline);
         boolean actualHasMane = lion.doesHaveMane();
         assertEquals("Value incorrect", expectedHasMane, actualHasMane);
     }
